@@ -1,0 +1,42 @@
+@use '@angular/material' as mat;
+@include mat.core();
+$primary: mat.m2-define-palette(mat.$m2-cyan-palette);
+$accent: mat.m2-define-palette(mat.$m2-orange-palette);
+$theme: mat.m2-define-light-theme((color:(primary:$primary,accent:$accent)));
+@include mat.all-component-themes($theme);
+
+html {
+    color-scheme: light;
+    @include mat.theme((
+        color: mat.$cyan-palette,
+        typography: Roboto,
+        density: 0
+    ));
+}
+
+html,
+body
+{
+    height:100%
+}
+
+body{
+    margin:0;
+    font-family: Roboto, Inter, system-ui, -apple-system, Segoe UI, Arial;
+    background: var(--mat-sys-surface);
+    color: var(--mat-sys-on-surface);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.col:last-child {
+    margin-right: 0;
+}
